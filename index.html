@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- head:start -->
+<title>Prof. Ira Vashisht</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Prof. Ira Vashisht, Associate Professor of Computational Neuroscience. Research on spiking neural networks, synaptic learning rules and neuromorphic hardware.">
+<meta property="og:title" content="Prof. Ira Vashisht · Spiking Systems Lab">
+<meta property="og:description" content="Research, publications, teaching and lab openings.">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#F3F5F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0E15" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<!-- head:end -->
+</head>
+<body>
+<!-- body:start -->
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar" id="top">
+  <div class="wrap topbar__in">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">I. Vashisht</span>
+      <span class="brand__lab">Spiking Systems Lab</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#group">Lab</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="topbar__tools">
+      <button class="kbd-btn" id="open-palette" type="button" aria-label="Open command palette">
+        <span>Search</span><kbd>⌘K</kbd>
+      </button>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle colour theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-name">
+    <div class="hero__text">
+      <p class="eyebrow" data-bind="role"></p>
+      <h1 id="hero-name" class="hero__name"><span class="hero__hon" data-bind="honorific"></span> <span data-bind="name"></span></h1>
+      <p class="hero__thesis" data-bind="thesis"></p>
+      <p class="hero__affil"><span data-bind="dept"></span><br><span data-bind="institute"></span></p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#publications">Read the papers</a>
+        <a class="btn" href="#group">Join the lab</a>
+        <button class="btn btn--ghost" type="button" data-copy-email>Copy email</button>
+      </div>
+      <ul class="profiles" id="profiles" aria-label="Academic profiles"></ul>
+    </div>
+
+    <figure class="scope" aria-label="Live simulation of a spiking neural network">
+      <figcaption class="scope__head">
+        <span class="scope__live" aria-hidden="true"></span>
+        <span>Live · simulated cortical raster</span>
+        <span class="scope__meta" id="scope-meta">48 units</span>
+      </figcaption>
+      <canvas id="raster" class="scope__canvas" role="img" aria-label="Spike raster: each dot is one action potential from one of 48 simulated neurons over the last second, with the population firing rate below."></canvas>
+      <div class="scope__foot">
+        <span>t (ms) →</span>
+        <span>pop. rate <b id="rate-readout">–</b> Hz</span>
+        <button class="scope__btn" id="raster-pause" type="button" aria-pressed="false">Pause</button>
+      </div>
+      <p class="scope__hint">Move the pointer over the raster to stimulate nearby neurons.</p>
+    </figure>
+
+    <dl class="metrics" id="metrics" aria-label="Research metrics"></dl>
+  </section>
+
+  <section class="section wrap" id="about" aria-labelledby="about-h">
+    <header class="section__head">
+      <span class="section__no">§1</span>
+      <h2 id="about-h">About</h2>
+    </header>
+    <div class="about">
+      <div class="about__bio prose" id="bio"></div>
+      <aside class="about__side">
+        <h3 class="label">Training</h3>
+        <ol class="timeline-mini" id="education"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section wrap" id="research" aria-labelledby="research-h">
+    <header class="section__head">
+      <span class="section__no">§2</span>
+      <h2 id="research-h">Research</h2>
+      <p class="section__lede">Four connected questions. Select one to see its papers.</p>
+    </header>
+    <div class="themes" id="themes"></div>
+  </section>
+
+  <section class="section wrap" id="publications" aria-labelledby="pubs-h">
+    <header class="section__head">
+      <span class="section__no">§3</span>
+      <h2 id="pubs-h">Publications</h2>
+    </header>
+    <div class="pubtools" role="search">
+      <label class="field">
+        <span class="sr-only">Search publications</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M10 3a7 7 0 1 0 4.2 12.6l4.6 4.6 1.4-1.4-4.6-4.6A7 7 0 0 0 10 3Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg>
+        <input id="pub-q" type="search" placeholder="Search title, venue, co-author" autocomplete="off">
+      </label>
+      <div class="chips" id="pub-types" role="group" aria-label="Filter by type"></div>
+      <label class="select">
+        <span class="sr-only">Filter by research theme</span>
+        <select id="pub-theme"></select>
+      </label>
+      <label class="toggle">
+        <input id="pub-selected" type="checkbox">
+        <span>Selected only</span>
+      </label>
+    </div>
+    <p class="pubcount" id="pub-count" aria-live="polite"></p>
+    <div id="pub-list" class="publist"></div>
+  </section>
+
+  <section class="section wrap" id="group" aria-labelledby="group-h">
+    <header class="section__head">
+      <span class="section__no">§4</span>
+      <h2 id="group-h">Lab</h2>
+      <p class="section__lede">Spiking Systems Lab: theorists, engineers and experimental collaborators.</p>
+    </header>
+    <div class="group">
+      <ul class="people" id="people"></ul>
+      <aside class="openings">
+        <h3 class="label">Open positions</h3>
+        <ul id="openings"></ul>
+        <h3 class="label">Before you email</h3>
+        <p>Put <code>[Prospective PhD]</code> in the subject, attach a CV, and write two lines on a paper of ours you would extend. Generic emails don't get a reply.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section wrap" id="teaching" aria-labelledby="teach-h">
+    <header class="section__head">
+      <span class="section__no">§5</span>
+      <h2 id="teach-h">Teaching</h2>
+    </header>
+    <div class="courses" id="courses"></div>
+  </section>
+
+  <section class="section wrap" id="news" aria-labelledby="news-h">
+    <header class="section__head">
+      <span class="section__no">§6</span>
+      <h2 id="news-h">News &amp; funding</h2>
+    </header>
+    <div class="newsgrid">
+      <ol class="news" id="news-list"></ol>
+      <div>
+        <h3 class="label">Funding</h3>
+        <ul class="grants" id="grants"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap contact" id="contact" aria-labelledby="contact-h">
+    <header class="section__head">
+      <span class="section__no">§7</span>
+      <h2 id="contact-h">Contact</h2>
+    </header>
+    <div class="contact__grid">
+      <div class="contact__mail">
+        <p class="label">Email</p>
+        <p class="contact__addr"><span id="email-text" data-bind="email"></span></p>
+        <div class="hero__cta">
+          <button class="btn btn--solid" type="button" data-copy-email>Copy address</button>
+          <a class="btn" id="mailto" href="#">Open mail app</a>
+        </div>
+      </div>
+      <dl class="contact__facts">
+        <div><dt class="label">Office</dt><dd data-bind="office"></dd></div>
+        <div><dt class="label">Office hours</dt><dd data-bind="officeHours"></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <p>© <span id="year"></span> <span data-bind="name"></span> · <span data-bind="institute"></span></p>
+    <p class="footer__note">Demo content: the person, papers and figures on this page are illustrative placeholders.</p>
+  </div>
+</footer>
+
+<dialog class="palette" id="palette" aria-label="Command palette">
+  <div class="palette__box">
+    <label class="palette__field">
+      <span class="sr-only">Type a command or search</span>
+      <input id="palette-q" type="text" placeholder="Jump to a section, find a paper, run a command…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="palette-list">
+      <kbd>esc</kbd>
+    </label>
+    <ul class="palette__list" id="palette-list" role="listbox"></ul>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="assets/js/content.js"></script>
+<script src="assets/js/raster.js"></script>
+<script src="assets/js/app.js"></script>
+<!-- body:end -->
+</body>
+</html>
